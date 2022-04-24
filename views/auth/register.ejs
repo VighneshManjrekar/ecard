@@ -1,0 +1,71 @@
+<%- include('../includes/head.ejs') -%>
+
+<body>
+    <div id="wallpaper">
+        <div class="container">
+            <div class="row bg-light pt-3 pb-5 justify-content-center mt-5 me-1 ms-1 mb-1 rounded-end">
+                <h1 class="text-center pb-3 sectionhead">Registration Panel</h1>
+                <div class="col col-md-5 col-12 mb-3">
+                    <img src="/res/welcome.png" class="rounded-3 img-thumbnail" width="100%" alt="">
+                </div>
+
+                <div class="col">
+
+
+                    <div class="row">
+                        <form class="row g-3" action="/register" method="post" novalidate>
+                            <div class="col-mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control <%= message.emailErr != null ? 'is-invalid' : '' %> " id="email" name="userMail"
+                                    value="<%=oldInput.userMail%>">
+                                <% if(message.emailErr) {%>
+                                <div class="invalid-feedback">
+                                    <%=message.emailErr%>
+                                </div>
+                                <%}%>
+                            </div>
+                            <div class="col-mb-3">
+                                <label for="userName" class="form-label">Name</label>
+                                <input type="text" class="form-control <%= message.userNameErr != null ? 'is-invalid' : '' %> " id="userName" name="userName"
+                                    value="<%=oldInput.userName%>">
+                                <% if(message.userNameErr) {%>
+                                <div class="invalid-feedback">
+                                    <%=message.userNameErr%>
+                                </div>
+                                <%}%>
+                            </div>
+                            <div class="col-mb-3">
+                                <label for="passWord" class="form-label">Password</label>
+                                <input type="password" class="form-control <%= message.passwordErr != null ? 'is-invalid' : '' %> " id="passWord"
+                                    value="<%=oldInput.passWord%>" name="passWord">
+                                <% if(message.passwordErr) {%>
+                                <div class="invalid-feedback">
+                                    <%=message.passwordErr%>
+                                </div>
+                                <%}%>
+                            </div>
+                            <div class="col-mb-3">
+
+                                <button type="submit" class="btn btn-primary" style="width: 150px;">Register</button>
+                                <span>Already registered?<a href="/login">
+                                        Login here!</a></span>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row bg-dark align-bottom text-white ms-1 me-1 mb-5">
+                <p>
+                    <center><i class="bi bi-code-slash"> </i>This Project is developed by Om Patil</center>
+                </p>
+            </div>
+        </div>
+</body>
+
+</html>

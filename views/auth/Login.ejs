@@ -1,0 +1,61 @@
+<%- include('../includes/head.ejs') -%>
+
+<body>
+    <div id="wallpaper">
+        <div class="container">
+            <div class="row bg-light pt-3 pb-5 justify-content-center mt-5 me-1 ms-1 mb-1 rounded-end">
+                <h1 class="text-center pb-3 sectionhead">Login Panel</h1>
+                <div class="col col-md-5 col-12 mb-3">
+                    <img src="/res/welcome.png" class="rounded-3 img-thumbnail" width="100%" alt="">
+                </div>
+
+                <div class="col">
+
+
+                    <div class="row">
+
+                        <form action="/login" method="POST">
+                            <div class="col mb-3 ">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control <%= emailErr != '' ? 'is-invalid' : '' %>" id="email" name="userMail" value="<%=oldInput.userMail%>"
+                                    placeholder="enter your email ">
+                                    <% if(emailErr) {%>
+                                        <div class="invalid-feedback">
+                                            <%=emailErr%>
+                                        </div>
+                                        <%}%>
+                            </div>
+
+
+                            <div class="col  mb-3">
+                                <label for="pass" class="form-label">Password</label>
+                                <input type="password" class="form-control <%= passwordErr != '' ? 'is-invalid' : '' %>" id="pass" name="passWord" value="<%=oldInput.passWord%>"
+                                    placeholder="enter password">
+                                    <% if(passwordErr) {%>
+                                        <div class="invalid-feedback">
+                                            <%=passwordErr%>
+                                        </div>
+                                        <%}%>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <span>New here? <a href="/register">Register here!</a></span>
+
+                    </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row bg-dark align-bottom text-white ms-1 me-1 mb-5">
+            <p>
+                <center><i class="bi bi-code-slash"> </i>This Project is developed by Om Patil</center>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

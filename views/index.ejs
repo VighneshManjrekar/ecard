@@ -1,0 +1,174 @@
+<%- include('./includes/head.ejs') -%>
+
+<body>
+
+  <div id="header">
+    <div style="padding: 0;" class="index-nav container-fluid">
+      <div class="row nav-row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+          <div class="container-fluid">
+            <h5 class="text-white me-lg-3 pt-2"><i class="bi bi-gear-wide-connected text-white"> </i>SD Tech & Education
+            </h5>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item text-white"><a class="nav-link active text-white" aria-current="page"
+                    href="/">Home</a></li>
+              </ul>
+            </div>
+          </div>
+          <form action="/logout" method="post" class="logout-btn">
+            <button type="submit" class="btn btn-danger">Logout</button>
+          </form>
+        </nav>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div id="counting" class="bg-light">
+    <div class="container bg-light pb-4">
+      <h1 class="sectionhead pt-2">Your enteries</h1>
+      <div class="row g-3 pb-5 pt-5 me-2 ms-2 mt-3 border border-2">
+
+        <div class="col-md-2">
+          <label for="userName" class="form-label ">User</label>
+          <input type="text" class="form-control" id="userName" value="<%=user.name%>" readonly>
+        </div>
+
+        <div class="col-auto">
+          <label for="userMail" class="form-label ">Email</label>
+          <input type="mail" readonly class="form-control" id="userMail" value="<%=user.mail%>">
+        </div>
+
+        <div class="col-auto">
+          <label for="noOfCards" class="form-label">No. of card</label>
+          <input type="text" class="form-control" id="noOfCards" readonly value="7">
+        </div>
+        <div class="col-auto">
+          <label for="cardsUsed" class="form-label">Used</label>
+          <input type="text" readonly class="form-control" id="cardsUsed" value="<%=user.cardsUsed%>">
+        </div>
+        <div class="col-auto">
+          <label for="remainingCards" class="form-label text-center">Remaning</label>
+          <input type="number" class="form-control" id="remainingCards" readonly value="<%=user.remainingCards%>">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="themes" class="bg-light">
+    <div class="container bg-light">
+      <h1 class="sectionhead pt-2">Select Your option</h1>
+      <div class="row align-content-around">
+
+
+        <div class="col-md-6 mt-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- <img src="res/bg.jpg" class="img-fluid" alt=""> -->
+              <h5 class="card-title text-center">Thank you Card</h5>
+              <img src="res/thank.jpg" class="img-fluid border border-2" alt="">
+              <p class="card-text pt-3">“Thank you for being the reason I smile.”</p>
+              <%if(user.cardsUsed < 7) {%>
+              <a href="/thank-you" class="btn btn-primary">Explore</a>
+              <%}%>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mt-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Certificate of appreciation</h5>
+              <img src="res/coa.png" class="img-fluid" alt="">
+              <p class="card-text pt-3">With supporting text below as a natural lead-in to additional content.</p>
+              <%if(user.cardsUsed < 7) {%>
+              <a href="/well-done" class="btn btn-primary">Go somewhere</a>
+              <%}%>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 mt-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- <img src="res/bg.jpg" class="img-fluid" alt=""> -->
+              <h5 class="card-title text-center">Excellence</h5>
+              <img src="res/coi.png" class="img-fluid border border-dark" alt="">
+              <p class="card-text pt-3">With supporting text below as a natural lead-in to additional content.</p>
+              <%if(user.cardsUsed < 7) {%>
+              <a href="/excellence" class="btn btn-primary">Explore</a>
+              <%}%>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-6 mt-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Team Work</h5>
+              <img src="res/c2.jpg" class="img-fluid" alt="">
+              <p class="card-text pt-3">With supporting text below as a natural lead-in to additional content.</p>
+              <%if(user.cardsUsed < 7) {%>
+              <a href="/team-work" class="btn btn-primary">Go somewhere</a>
+              <%}%>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="col-md-6 mt-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <!-- <img src="res/bg.jpg" class="img-fluid" alt=""> -->
+              <h5 class="card-title text-center">Attitude</h5>
+              <img src="res/c2.jpg" class="img-fluid" alt="">
+              <p class="card-text pt-3">With supporting text below as a natural lead-in to additional content.</p>
+              <%if(user.cardsUsed < 7) {%>
+              <a href="/attitude" class="btn btn-primary">Explore</a>
+              <%}%>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mt-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Customer Service</h5>
+              <img src="res/wel.png" class="img-fluid border border-dark" alt="">
+              <p class="card-text pt-3">"Giving encouragement to others is a most welcome gift... "</p>
+              <%if(user.cardsUsed < 7) {%>
+              <a href="/customer-service" class="btn btn-primary">Go somewhere</a>
+              <%}%>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div id="footer">
+    <div class="container-fluid">
+      <div class="row bg-dark text-white p-2 sticky-lg-top">
+        <div class="col-7 offset-md-1">
+          <h6>SD Tech pvt. limited., copyright@2021, This project is developed by Om Patil</h6>
+        </div>
+        <div class="col offset-md-2 ">
+          <i class="bi bi-facebook ms-2"> </i> <i class="bi bi-meta ms-2"> </i><i class="bi bi-instagram ms-2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>

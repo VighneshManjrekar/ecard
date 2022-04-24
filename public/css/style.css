@@ -1,0 +1,81 @@
+body{
+    background: url('../res/logbg.png');
+    height: 100vh;
+    /* background-repeat: no-repeat; */
+    /* background-size:; */
+}
+
+.index-nav{
+    /* margin: 0; */
+    /* padding: 0; */
+    display: block;
+    z-index: 1;
+}
+
+.small-img{
+    cursor: pointer;
+}
+.nav-row{
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logout-btn{
+    margin-left: 1rem;
+}
+/* #wallpaper .www{
+margin-top: 10%;
+} */
+
+input{
+width: 40%;
+}
+
+/* .row{
+    border: solid 2px black;
+}
+
+.col{
+    border: solid green 4px;
+} */
+
+.sectionhead{
+    text-align: center;
+}
+
+.sectionhead::after{
+    display: block;
+    text-align: center;
+    content: '';
+    width:200px;
+    background-color: orangered;
+    height: 3px;
+    margin: 20px auto;
+}
+
+#header a{
+    display: block;
+    color: rgb(253, 253, 253);
+}
+
+#header a:hover{
+    background-color: rgb(177, 177, 177);
+}
+
+.index-nav{
+    display: flex;
+    margin:0 1rem ;
+    justify-content: space-between;
+}
+
+.error{
+    width: 100%;
+    text-align: center;
+    background: red;
+    color: #ffffff;
+}
+.error>p{
+    padding: .5rem 0;
+}
