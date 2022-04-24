@@ -1,8 +1,6 @@
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const User = require("../model/userModel");
-const Winner = require("../model/winnerModel")
-
 
 exports.getSignIn = (req, res, next) => {
   res.status(400).render("auth/login", {

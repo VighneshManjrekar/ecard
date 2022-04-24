@@ -3,12 +3,6 @@ const config = process.env;
 const path = require('path')
 const nodemailer = require("nodemailer");
 const User = require("../model/userModel");
-const { validationResult } = require("express-validator");
-// var fs = require('fs');
-
-// require.extensions['.html'] = function (module, filename) {
-//     module.exports = fs.readFileSync(filename, 'utf8');
-// };
 
 exports.thankYou = (req, res, next) => {
     
