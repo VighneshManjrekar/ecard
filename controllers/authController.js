@@ -70,7 +70,7 @@ exports.postSignUp = async (req, res, next) => {
       passWord: hashedPass,
     });
     await user.save();
-    res.redirect("/login");
+    // res.redirect("/login");
     return res.status(200).json({msg:"Successful"})
   } catch (err) {
     return res.status(500).json({msg:"Failed"})
