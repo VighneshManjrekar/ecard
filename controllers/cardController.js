@@ -117,19 +117,25 @@ exports.sendMail = async (req, res, next) => {
         html: data
     };
     try {
-        
+        const userExist = await User.findOne({userMail:sendTo})
+        if(!userExist){
+            return res.status(500).json({msg:"User Don't exists"})
+        }
         await transporter.sendMail(mailOptions)
         await req.user.addCard(sendTo, cardType)
         const recievedUser = await User.findOne({userMail:sendTo})
         recievedUser.cardsRecieved[cardType].qty +=1
         recievedUser.cardsRecieved[cardType].sentBy.push(from)
         await recievedUser.save()
-        return res.redirect('/');
+        return res.status(200).json({user:req.user})
+        // return res.redirect('/');
     }
     catch (err) {
-        const error = new Error(err);
-        error.httpStatusCode = 500;
-        return next(error);
+        
+        return res.status(500).json({msg:err})
+        // const error = new Error(err);
+        // error.httpStatusCode = 500;
+        // return next(error);
     }
 
 

@@ -101,7 +101,7 @@ exports.postSignIn = async (req, res, next) => {
     if (isMatch) {
       req.session.isLoggedIn = true;
       req.session.user = user;
-      res.redirect("/");
+      res.status(200).json({user})
     } else {
       return res.status(400).render("auth/login", {
         pageTitle: "Login",
@@ -114,16 +114,14 @@ exports.postSignIn = async (req, res, next) => {
       });
     }
   } catch (err) {
-    const error = new Error(err);
-    error.httpStatusCode = 500;
-    return next(error);
+    res.status(500).json({msg:`${err}`})
   }
 
 };
 
 exports.postLogout = (req, res, next) => {
   req.session.destroy(() => {
-    res.redirect("/login");
+    res.status(200).json({msg:"Success"});
   });
 };
 
