@@ -72,10 +72,8 @@ exports.postSignUp = async (req, res, next) => {
     await user.save();
     res.redirect("/login");
     return res.status(200).json({msg:"Successful"})
-
   } catch (err) {
     return res.status(500).json({msg:"Failed"})
-
     // const error = new Error(err);
     // error.httpStatusCode = 500;
     // return next(error);
